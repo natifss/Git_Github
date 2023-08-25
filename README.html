@@ -1,0 +1,182 @@
+<h1 id="comandos-git-e-github">Comandos Git e Github</h1>
+<h3 id="git">Git</h3>
+<p><img src="index.html" alt=""></p>
+<blockquote>
+<p>Git é um sistema de controle de versão distribuído. Ele permite que os desenvolvedores rastreiem e gerenciem mudanças em arquivos – geralmente, mas não exclusivamente, código-fonte de programas. Aqui estão algumas características e conceitos centrais do Git:</p>
+</blockquote>
+<ul>
+<li><p><strong>Commits</strong>: Um &quot;snapshot&quot; de um conjunto de mudanças nos arquivos. Cada commit tem um identificador único (um hash SHA-1).</p>
+</li>
+<li><p><strong>Branches</strong>: Uma linha independente de desenvolvimento. Você pode trabalhar em diferentes branches para isolar características ou correções específicas. A branch padrão é chamada &quot;master&quot; (ou &quot;main&quot; em repositórios mais recentes).</p>
+</li>
+<li><p><strong>Merge</strong>: O processo de combinar as mudanças de uma branch em outra.</p>
+</li>
+<li><p><strong>Distribuído</strong>: Cada cópia local de um repositório Git é um clone completo, contendo todo o histórico de commits. Isso permite a colaboração sem um ponto central de falha e possibilita o trabalho offline.</p>
+</li>
+<li><p><strong>Áreas de Stage</strong>: Antes de criar um commit, você deve adicionar (ou &quot;stage&quot;) mudanças. Isso dá aos desenvolvedores mais controle sobre quais mudanças fazem parte de um commit.</p>
+</li>
+</ul>
+<blockquote>
+<p>No diretório .git contém os metadados e objetos necessários para funcionar o git.</p>
+</blockquote>
+<p><strong>config</strong>: Contém as configurações específicas do repositório. Isso inclui informações como os remotos (por exemplo, URLs para GitHub, GitLab, etc.), preferências de branch e outras configurações específicas do repositório.</p>
+<p><strong>description</strong>: Usado principalmente pelo GitWeb para fornecer uma descrição do repositório. Por padrão, tem uma descrição genérica, e muitos repositórios não a personalizam.</p>
+<p><strong>FETCH_HEAD</strong>: Armazena informações sobre os ramos de outros repositórios que você deu git fetch recentemente. É usado internamente pelo Git para entender o que foi buscado da rede até o momento.</p>
+<p><strong>HEAD</strong>: Um ponteiro para o commit ou branch atual. Em muitos casos, aponta para o branch que você está atualmente (por exemplo, ref: refs/heads/main).</p>
+<p><strong>hooks/</strong>: Este diretório contém scripts que podem ser executados automaticamente em resposta a eventos do Git, como um commit ou um push. Estes são chamados de &quot;hooks&quot; (ganchos).</p>
+<p><strong>index</strong>: Armazena informações sobre o que está atualmente na sua área de staging. É uma representação binária de &quot;o que vai no próximo commit&quot;.</p>
+<p><strong>info/</strong>: Contém o arquivo exclude, que é como um .gitignore, mas só funciona localmente (não é compartilhado com outros repositórios).</p>
+<p><strong>logs/</strong>: Registra as mudanças nos ponteiros de branch e outras atividades neste repositório.</p>
+<p><strong>objects/</strong>: Este diretório é fundamental. Ele armazena todos os commits, árvores (que correspondem a diretórios), blobs (que correspondem a arquivos) e tags. Basicamente, todos os dados do seu repositório estão em algum lugar aqui.</p>
+<p><strong>packed-refs</strong>: Uma versão compacta de referências, para economizar espaço e melhorar o desempenho.</p>
+<p><strong>refs/</strong>: Armazena ponteiros para commits. Esta é a estrutura que rastreia branches (refs/heads/), tags (refs/tags/) e remotes (refs/remotes/).</p>
+<h2 id="github">GitHub</h2>
+<blockquote>
+<p>GitHub é uma plataforma de hospedagem de repositórios Git. Além de hospedar código, o GitHub oferece várias outras funcionalidades para melhorar a colaboração e a gestão de projetos:</p>
+</blockquote>
+<ul>
+<li><p><strong>Pull Requests (PRs)</strong>: Uma maneira de contribuir para repositórios de outras pessoas ou organizações. Você faz uma cópia (fork) do projeto, faz suas alterações e, em seguida, solicita que as mudanças sejam integradas ao projeto original por meio de um PR.</p>
+</li>
+<li><p><strong>Issues</strong>: Um sistema de rastreamento de bugs e tarefas. Pode ser usado para discutir problemas, características e planejar o desenvolvimento.</p>
+</li>
+<li><p><strong>GitHub Actions</strong>: Uma ferramenta de automação para CI/CD (Integração Contínua/Entrega Contínua) e outras tarefas relacionadas ao desenvolvimento.</p>
+</li>
+<li><p><strong>Gists</strong>: Pequenos trechos de código ou notas. Uma maneira mais informal e rápida de compartilhar código ou informações.</p>
+</li>
+<li><p><strong>Pages</strong>: Uma ferramenta para hospedar sites estáticos diretamente dos repositórios.</p>
+</li>
+<li><p><strong>Integração com Terceiros</strong>: O GitHub pode ser integrado com muitas outras ferramentas e serviços.</p>
+</li>
+</ul>
+<h1 id="comandos-git">Comandos git</h1>
+<p>Adicionar os arquivos na &#39;staging&#39; </p>
+<blockquote>
+<p>A área de Staging serve para serve para preparar as mudanças para o commit, flexibilizando as mudanças. Garantindo os commits mais limpos.</p>
+</blockquote>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">add</span><span class="bash"> .</span>
+</code></pre>
+<blockquote>
+<p>O &quot;commit&quot; é uma das operações fundamentais do Git e é o mecanismo pelo qual as mudanças são registradas no histórico do repositório. </p>
+</blockquote>
+<pre><code class="lang-sh">$ git commit -m <span class="hljs-symbol">'info</span> <span class="hljs-keyword">do</span> cod'
+</code></pre>
+<blockquote>
+<p>O log mostra os históricos dos commits, mostrando os 40 dígitos do Hash.</p>
+<p>O commit é imutável, uma vez que um commit é criado, ele recebe um identificador único (SHA-1 hash).</p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-symbol">$</span> git <span class="hljs-built-in">log</span>
+</code></pre>
+<blockquote>
+<p>Uma das partes mais úteis do git show é que ele exibe as mudanças introduzidas pelo commit em um formato diff. </p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-variable">$ </span>git show
+</code></pre>
+<blockquote>
+<p>Caso queira ver um resumo das mudanças em vez do diff</p>
+</blockquote>
+<pre><code class="lang-sh">$ git <span class="hljs-built_in">log</span> <span class="hljs-comment">--stat</span>
+</code></pre>
+<blockquote>
+<p>O git push é um comando utilizado para atualizar referências remotas e associar objetos confirmados (commits) ao repositório remoto.</p>
+</blockquote>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">push</span>
+</code></pre>
+<blockquote>
+<p>No repositório remoto sem afetar o local pode-se usar:</p>
+</blockquote>
+<pre><code class="lang-sh">$ git rm <span class="hljs-comment">--cached arquivo.dat</span>
+</code></pre>
+<blockquote>
+<p>Deve-se commitar</p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-variable">$ </span>git commit -m <span class="hljs-string">'deletando arquivo.dat'</span>
+</code></pre>
+<blockquote>
+<p>Depois</p>
+</blockquote>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">push</span>
+</code></pre>
+<blockquote>
+<p>O <strong>.gitignore</strong> é um arquivo especial usado no Git para especificar arquivos e diretórios intencionalmente não rastreados. Ou seja, serve para indicar ao Git quais arquivos ou diretórios ele deve ignorar e não considerar para o versionamento.</p>
+</blockquote>
+<h3 id="desafio">Desafio</h3>
+<p>Pequeno desafio, não quero que apareça o arquivo .gitignore no
+repositório remoto, como proceder? Por que isso não é recomendado?
+R: Adicione o .gitignore no próprio arquivo .gitignore, isso não é recomendável, pois um <strong>.gitignore</strong> pode prevenir que arquivos sensíveis ou desnecessários sejam comitados acidentalmente. O que é fundamental para outros desenvolvedores, e também serve como um documentação implícita.</p>
+<blockquote>
+<p>Para atualizar o repositório local com as alterações feitas no repositório remoto. </p>
+<p>&#39;git pull&#39; é a combinação de dois comandos &#39;git fetch&#39; seguido por &#39;git merge&#39;. </p>
+<p><strong>&#39;git fetch&#39;</strong>: O git busca alterações feitas no repositório remoto.</p>
+<p><strong>&#39;git merge&#39;</strong>: Depois de buscar as alterações, o git tenta mesclá-las com a branch atual do repositório local.</p>
+</blockquote>
+<pre><code class="lang-sh">$ git pull <span class="hljs-comment">--rebase</span>
+</code></pre>
+<blockquote>
+<p>Prune: o git removerá branches locais que não estão mais no repositório remoto. </p>
+</blockquote>
+<pre><code class="lang-sh">$ git pull <span class="hljs-comment">--prune</span>
+</code></pre>
+<blockquote>
+<p>O &#39;git stash&#39; é um comando muito útil permitindo que você salve (&quot;stash&quot;) alterações que ainda não foram comitadas, deixando o local mais limpo, se utilizando de um sistema de pilha. </p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-variable">$ </span>git stash
+</code></pre>
+<blockquote>
+<p>Para recuperar uma stash</p>
+</blockquote>
+<pre><code class="lang-sh">$ git stash <span class="hljs-built_in">apply</span>
+</code></pre>
+<blockquote>
+<p>Caso queira listar </p>
+</blockquote>
+<pre><code class="lang-sh">$ git stash <span class="hljs-built_in">list</span>
+</code></pre>
+<blockquote>
+<p>Para deletar uma stash</p>
+</blockquote>
+<pre><code class="lang-sh">$ git stash <span class="hljs-keyword">drop</span> <span class="hljs-symbol">&lt;nome&gt;</span>
+</code></pre>
+<blockquote>
+<p>Deletar todos os &quot;stashes&quot;</p>
+</blockquote>
+<pre><code class="lang-sh">$ git stash <span class="hljs-built_in">clear</span>
+</code></pre>
+<pre><code class="lang-sh">$ git clone &lt;<span class="hljs-built_in">URL</span> <span class="hljs-built_in">do</span> repositório&gt;: Clona um repositório <span class="hljs-built_in">do</span> GitHub para sua máquina <span class="hljs-built_in">local</span>.
+</code></pre>
+<pre><code class="lang-sh">$ git pull: Obtém <span class="hljs-keyword">as</span> alterações mais recentes <span class="hljs-keyword">do</span> repositório remoto para o seu repositório <span class="hljs-keyword">local</span>.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-built_in">add</span> <span class="hljs-symbol">&lt;arquivos&gt;</span>: Adiciona <span class="hljs-keyword">as</span> alterações dos arquivos ao índice (staging area), preparando-os para <span class="hljs-keyword">o</span> commit.
+</code></pre>
+<pre><code class="lang-sh">$ git commit -<span class="hljs-keyword">m</span> <span class="hljs-symbol">&lt;mensagem&gt;</span>: Confirma <span class="hljs-keyword">as</span> alterações <span class="hljs-keyword">no</span> índice <span class="hljs-keyword">com</span> uma mensagem explicativa.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-string">push:</span> Envia <span class="hljs-keyword">as</span> alterações confirmadas para o repositório remoto.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-built_in">status</span>: Mostra o <span class="hljs-built_in">status</span> das alterações no seu repositório <span class="hljs-built_in">local</span>.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">branch: </span>Lista as <span class="hljs-keyword">branches </span><span class="hljs-keyword">disponíveis </span>e indica em qual você está atualmente.
+</code></pre>
+<pre><code class="lang-sh">$ git checkout &lt;nome da <span class="hljs-keyword">branch&gt;: </span>Muda para outra <span class="hljs-keyword">branch.</span>
+</code></pre>
+<pre><code class="lang-sh">$ git merge &lt;outra <span class="hljs-keyword">branch&gt;: </span>Combina as alterações de outra <span class="hljs-keyword">branch </span>na <span class="hljs-keyword">branch </span>atual.
+</code></pre>
+<pre><code class="lang-sh">$ git pull <span class="hljs-keyword">origin </span>&lt;nome da <span class="hljs-keyword">branch&gt;: </span>Puxa as alterações da <span class="hljs-keyword">branch </span>remota especificada para a sua <span class="hljs-keyword">branch </span>local.
+</code></pre>
+<pre><code class="lang-sh">$ git remote -v: Lista <span class="hljs-built_in">os</span> repositórios remotos associados ao seu repositório <span class="hljs-keyword">local</span>.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">log</span>: Mostra o <span class="hljs-keyword">hist</span>órico <span class="hljs-keyword">de</span> commits.
+</code></pre>
+<pre><code class="lang-sh">$ git reset &lt;arquivo&gt;: <span class="hljs-keyword">Remove</span> <span class="hljs-built_in">as</span> alterações <span class="hljs-built_in">do</span> arquivo <span class="hljs-built_in">do</span> índice, mas preserva <span class="hljs-built_in">as</span> alterações locais.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-string">stash:</span> Guarda temporariamente <span class="hljs-keyword">as</span> alterações não confirmadas.
+</code></pre>
+<pre><code class="lang-sh">$ git stash <span class="hljs-string">pop:</span> Aplica <span class="hljs-keyword">as</span> alterações guardadas anteriormente.
+</code></pre>
+<pre><code class="lang-sh">$ git diff: Mostra <span class="hljs-keyword">as</span> diferenç<span class="hljs-keyword">as</span> entre os arquivos <span class="hljs-keyword">no</span> diretório <span class="hljs-keyword">de</span> trabalho <span class="hljs-keyword">e</span> a <span class="hljs-keyword">vers</span>ão <span class="hljs-keyword">no</span> índice.
+</code></pre>
+<pre><code class="lang-sh">$ git remote <span class="hljs-keyword">add</span><span class="bash"> &lt;nome&gt; &lt;URL <span class="hljs-keyword">do</span> repositório&gt;: Adiciona um novo repositório remoto.</span>
+</code></pre>
+<pre><code class="lang-sh">$ git remote <span class="hljs-keyword">remove</span> &lt;nome&gt;: <span class="hljs-keyword">Remove</span> um repositório remoto.
+</code></pre>
+<pre><code class="lang-sh">$ git <span class="hljs-keyword">push </span>origin --delete &lt;nome da <span class="hljs-keyword">branch&gt;: </span>Deleta uma <span class="hljs-keyword">branch </span>remota.
+</code></pre>
+<p><img src="GITGITHUB.jpg" alt=""></p>

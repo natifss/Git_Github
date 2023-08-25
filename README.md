@@ -1,6 +1,8 @@
 # Comandos Git e Github
 
-## Git 
+### Git 
+
+![](index.html)
 
 > Git é um sistema de controle de versão distribuído. Ele permite que os desenvolvedores rastreiem e gerenciem mudanças em arquivos – geralmente, mas não exclusivamente, código-fonte de programas. Aqui estão algumas características e conceitos centrais do Git:
 
@@ -135,13 +137,6 @@ R: Adicione o .gitignore no próprio arquivo .gitignore, isso não é recomendá
 
 > **'git merge'**: Depois de buscar as alterações, o git tenta mesclá-las com a branch atual do repositório local.
 
-```sh
-$ git pull
-```
-
-> Existem algumas variações e opções que podem ser usadas com o **'git pull'**:
-
-> Rebase: ao invés do merge tradicional da qual se utiliza o git pull, o rebase reulta em um histórico mais limpo.
 
 ```sh
 $ git pull --rebase
@@ -183,4 +178,80 @@ $ git stash drop <nome>
 $ git stash clear 
 ```
 
+```sh
+$ git clone <URL do repositório>: Clona um repositório do GitHub para sua máquina local.
+```
 
+```sh
+$ git pull: Obtém as alterações mais recentes do repositório remoto para o seu repositório local.
+```
+
+```sh
+$ git add <arquivos>: Adiciona as alterações dos arquivos ao índice (staging area), preparando-os para o commit.
+```
+
+```sh
+$ git commit -m <mensagem>: Confirma as alterações no índice com uma mensagem explicativa.
+```
+
+```sh
+$ git push: Envia as alterações confirmadas para o repositório remoto.
+```
+
+```sh
+$ git status: Mostra o status das alterações no seu repositório local.
+```
+
+```sh
+$ git branch: Lista as branches disponíveis e indica em qual você está atualmente.
+```
+
+```sh
+$ git checkout <nome da branch>: Muda para outra branch.
+```
+
+```sh
+$ git merge <outra branch>: Combina as alterações de outra branch na branch atual.
+```
+
+```sh
+$ git pull origin <nome da branch>: Puxa as alterações da branch remota especificada para a sua branch local.
+```
+
+```sh
+$ git remote -v: Lista os repositórios remotos associados ao seu repositório local.
+```
+
+```sh
+$ git log: Mostra o histórico de commits.
+```
+
+```sh
+$ git reset <arquivo>: Remove as alterações do arquivo do índice, mas preserva as alterações locais.
+```
+
+```sh
+$ git stash: Guarda temporariamente as alterações não confirmadas.
+```
+
+```sh
+$ git stash pop: Aplica as alterações guardadas anteriormente.
+```
+
+```sh
+$ git diff: Mostra as diferenças entre os arquivos no diretório de trabalho e a versão no índice.
+```
+
+```sh
+$ git remote add <nome> <URL do repositório>: Adiciona um novo repositório remoto.
+```
+
+```sh
+$ git remote remove <nome>: Remove um repositório remoto.
+```
+
+```sh
+$ git push origin --delete <nome da branch>: Deleta uma branch remota.
+```
+
+![](GITGITHUB.jpg)
